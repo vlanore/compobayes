@@ -102,7 +102,6 @@ class RunToggle : public tc::Component {
     bool check() {
         ifstream fs;
         fs.open(chainname + ".run", ios_base::in);
-        cerr << "CHECK " << (char)(fs.peek()) << '\n';
         return static_cast<char>(fs.peek()) == '1';
     }
 };
