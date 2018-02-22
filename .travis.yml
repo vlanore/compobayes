@@ -48,6 +48,5 @@ before_script:
   - $CXX -v
 
 script:
-  - cd sources
   - make
-  - make test
+  # - make test
