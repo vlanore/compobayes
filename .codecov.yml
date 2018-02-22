@@ -1,5 +1,5 @@
 codecov:
-  branch: vlanore-dev
+  branch: master
 
 coverage:
   range: 50..75
@@ -10,4 +10,5 @@ coverage:
         threshold: 5
 
 ignore:
-  - "utils"
+  - "sources/Eigen"
+  - "sources/tinycompo.hpp
