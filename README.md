@@ -8,4 +8,4 @@ cd compobayes
 make
 ```
 
-Requirements: `make`, `cmake`, and a C++11 compiler (such as gcc5 or clang 3.3).
+Requirements: `curl`, an internet connection, `make`, `cmake`, and a C++11 compiler (such as gcc5 or clang 3.3).
