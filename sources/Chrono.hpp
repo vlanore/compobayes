@@ -9,17 +9,35 @@
 
 class Chrono {
   public:
-    void Reset();
-    void Start();
-    void Stop();
+    void Reset() {
+        TotalTime = 0;
+        N = 0;
+    }
 
-    inline int operator++() { return N++; }
+    void Start() {
+        struct timeval tod;
+        gettimeofday(&tod, nullptr);
+        sec1 = ((double)tod.tv_sec);
+        milli1 = ((double)tod.tv_usec) / 1000;
+    }
 
-    inline double GetTime() const { return TotalTime; }
+    void Stop() {
+        struct timeval tod;
+        gettimeofday(&tod, nullptr);
+        sec2 = ((double)tod.tv_sec);
+        milli2 = ((double)tod.tv_usec) / 1000;
+        double duration = 1000 * (sec2 - sec1) + milli2 - milli1;
 
-    inline double GetTimePerCount() const { return TotalTime / N; }
+        TotalTime += duration;
+    }
 
-    inline int GetCount() const { return N; }
+    int operator++() { return N++; }
+
+    double GetTime() const { return TotalTime; }
+
+    double GetTimePerCount() const { return TotalTime / N; }
+
+    int GetCount() const { return N; }
 
   private:
     // this is in milli seconds
@@ -29,44 +47,6 @@ class Chrono {
     double milli2;
     double TotalTime;
     int N;
-};
-
-class MeasureTime : public std::stringstream {
-  public:
-    MeasureTime() : stopped(false) { start(); }
-
-    void start() {
-        counter = std::chrono::high_resolution_clock::now();
-        stopped = false;
-    }
-
-    void stop() {
-        stopped = true;
-        duration =
-            std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - counter);
-    }
-
-    template <int i>
-    void print(std::string message) {
-        if (!stopped) {
-            stop();
-        }
-        std::string left(2 * i, ' ');
-        std::cout << left << "* " << message << str() << "Time: " << duration.count() << "ms." << std::endl;
-        str("");
-        start();
-    }
-
-    template <int i>
-    void print() {
-        print<i>("");
-    }
-
-  private:
-    std::chrono::time_point<std::chrono::high_resolution_clock> counter;
-    std::chrono::milliseconds duration;
-    bool stopped;
-    std::stringstream ss;
 };
 
 #endif  // CHRONO_H

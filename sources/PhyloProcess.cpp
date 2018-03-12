@@ -274,11 +274,9 @@ double PhyloProcess::FastSiteLogLikelihood(int site) const {
 
 double PhyloProcess::GetFastLogProb() const {
     double total = 0;
-    MeasureTime timer;
     for (int i = 0; i < GetNsite(); i++) {
         total += sitelnL[i];
     }
-    // timer.print<2>("GetFastLogProb. ");
     return total;
 }
 

@@ -21,5 +21,5 @@ test: globom
 	data/globom -t data/c3c4/C4Amaranthaceae.tree -d data/c3c4/C4Amaranthaceaeshort.ali -x 1 1 tmp
 
 ready: all
-	@cd sources && make format
+	@cd sources && make --no-print-directory format
 	@git status
