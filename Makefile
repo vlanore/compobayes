@@ -1,4 +1,4 @@
-.PHONY: all clean ready globom
+.PHONY: all clean ready globom test
 
 all: globom
 
@@ -13,6 +13,9 @@ clean:
 
 format:
 	@cd sources && make --no-print-directory format
+
+test:
+	data/globom -d ../data/cyp_coding.phy -t ../data/cyp_2cond.tree -x 1 1 tmp
 
 ready: all
 	@cd sources && make format
