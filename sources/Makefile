@@ -1,8 +1,8 @@
 CC=$(CXX)
-CPPFLAGS= -std=c++11 -Wall -Wextra -Wno-unused-parameter -O3
+CPPFLAGS= -std=c++11 -Wall -Wextra -Wno-unused-parameter $(COMPOBAYES_EXTRA_FLAGS)
 # CPPFLAGS= -std=c++11 -Wall -Wextra -Wno-unused-parameter -g -fno-inline-functions
 # CPPFLAGS= -std=c++11 -g -Wall -Wextra -Wno-unused-parameter -fprofile-arcs -ftest-coverage
-LDFLAGS =
+LDFLAGS = $(COMPOBAYES_EXTRA_LINK_FLAGS)
 # LDFLAGS = -fprofile-arcs -ftest-coverage
 SRCS= BranchSitePath.cpp Chrono.cpp CodonSequenceAlignment.cpp CodonStateSpace.cpp CodonSubMatrix.cpp GTRSubMatrix.cpp PhyloProcess.cpp Random.cpp SequenceAlignment.cpp StateSpace.cpp SubMatrix.cpp TaxonSet.cpp Tree.cpp AAMutSelOmegaCodonSubMatrix.cpp
 
