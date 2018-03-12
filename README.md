@@ -1,5 +1,5 @@
 # CompoBayes
-[![Build Status](https://travis-ci.org/vlanore/compobayes.svg?branch=master)](https://travis-ci.org/vlanore/compobayes)
+[![Build Status](https://travis-ci.org/vlanore/compobayes.svg?branch=master)](https://travis-ci.org/vlanore/compobayes) [![codecov](https://codecov.io/gh/vlanore/compobayes/branch/master/graph/badge.svg)](https://codecov.io/gh/vlanore/compobayes)
 
 A component-based version of [Bayescode](https://github.com/bayesiancook/bayescode).
 
