@@ -10,5 +10,5 @@ coverage:
         threshold: 5
 
 ignore:
-  - "sources/Eigen/**/*"
+  - "sources/Eigen/.*"
   - "sources/tinycompo.hpp
