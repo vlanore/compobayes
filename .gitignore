@@ -7,3 +7,4 @@ tmp*
 *.gcov
 tinycompo.hpp
 data/*
+default.profraw
