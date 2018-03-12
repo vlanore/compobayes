@@ -6,7 +6,7 @@ globom: sources/tinycompo.hpp
 	@cd sources && make --no-print-directory -j8 COMPOBAYES_EXTRA_FLAGS="-O3"
 
 globom-coverage: sources/tinycompo.hpp
-	@cd sources && make --no-print-directory -j8 COMPOBAYES_EXTRA_FLAGS="-O0 -fprofile-arcs -ftest-coverage" COMPOBAYES_EXTRA_LINK_FLAGS="-fprofile-arcs -ftest-coverage"
+	@cd sources && make --no-print-directory -j8 CPPFLAGS="--std=c++11 -O0 -fprofile-arcs -ftest-coverage" LDFLAGS="-fprofile-arcs -ftest-coverage"
 
 sources/tinycompo.hpp:
 	@curl https://raw.githubusercontent.com/vlanore/tinycompo/master/tinycompo.hpp > $@
