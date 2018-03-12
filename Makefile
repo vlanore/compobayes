@@ -20,10 +20,6 @@ format:
 test: globom
 	data/globom -t data/c3c4/C4Amaranthaceae.tree -d data/c3c4/C4Amaranthaceaeshort.ali -x 1 1 tmp
 
-mvcov: all
-	find _build -type f -name "*.gcno" -exec mv -t src/ {} +
-	find _build -type f -name "*.gcda" -exec mv -t src/ {} +
-
 ready: all
 	@cd sources && make format
 	@git status

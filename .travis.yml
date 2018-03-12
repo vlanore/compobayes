@@ -24,7 +24,6 @@ matrix:
         - export CXX=$COMPILER
         - make globom-coverage
       after_success:
-        - make mvcov
         - bash <(curl -s https://codecov.io/bash)
 
     - os: linux
