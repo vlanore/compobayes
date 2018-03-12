@@ -22,10 +22,10 @@ matrix:
         - COMPILER=g++-5
       before_script:
         - export CXX=$COMPILER
-        # - make build-coverage
+        - make globom-coverage
       after_success:
-        # - make mvcov
-        # - bash <(curl -s https://codecov.io/bash)
+        - make mvcov
+        - bash <(curl -s https://codecov.io/bash)
 
     - os: linux
       dist: trusty

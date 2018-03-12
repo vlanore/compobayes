@@ -18,7 +18,11 @@ format:
 	@cd sources && make --no-print-directory format
 
 test: globom
-	data/globom -d ../data/cyp_coding.phy -t ../data/cyp_2cond.tree -x 1 1 tmp
+	data/globom -t data/c3c4/C4Amaranthaceae.tree -d data/c3c4/C4Amaranthaceaeshort.ali -x 1 1 tmp
+
+mvcov: all
+	find _build -type f -name "*.gcno" -exec mv -t src/ {} +
+	find _build -type f -name "*.gcda" -exec mv -t src/ {} +
 
 ready: all
 	@cd sources && make format
